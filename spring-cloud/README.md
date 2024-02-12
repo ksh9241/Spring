@@ -1,5 +1,21 @@
 # Spring Cloud
 
+### Spring Cloud
+- Centralized Configuration Management
+    - Spring Cloud Config Server
+- Location Transparency
+    - Naming Server(Eureka)
+- Load Distribution (Load Balancing)
+    - Ribbon (Client Side)
+    - Spring Cloud Gateway
+- Easier REST Clients
+    - FeignClient
+- Visibility and Monitoring
+    - Zipkin Distributed Tracing
+    - Netflix API Gateway
+- Fault Tolerance
+    - Hystrix
+
 ### CI/CD
 - 지속적인 통합
     - Jenkins, Team CI, TravisCI
@@ -35,3 +51,14 @@
 12. Admin Processes For Eventual Processes
 
 
+### SOA 와 MSA와 차이점
+- 서비스 공유 지향점
+    - SOA 
+        - 재사용을 통한 비용 절감
+        - 공통의 서비스를 ESB에 모아 사업 측면에서 공통 서비스 형식으로 서비스 제공
+    - MSA 
+        - 서비스 간의 결합도를 낮춰 변화에 능동적으로 대응
+        - 각 독립된 서비스가 노출된 REST API를 사용
+
+### Service Discovery (eureka)
+    - 서비스 key/value로 등록과 검색을 관리하는 서비스
