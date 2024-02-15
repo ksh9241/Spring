@@ -62,3 +62,22 @@
 
 ### Service Discovery (eureka)
     - 서비스 key/value로 등록과 검색을 관리하는 서비스
+
+### API Gateway Service
+백엔드 로드밸런싱 역할
+
+Spring Cloud - Gateway Dependency 사용
+
+- API Gateway Service 기능
+    - 인증 및 권한 부여
+    - 서비스 검색 통합
+    - 응답 캐싱
+    - 정책, 회로차단기 및 QoS 다시 시도
+    - 속도 제한
+    - 부하 분산
+    - 로깅, 추적, 상관관계
+    - 헤더, 쿼리문자열 및 청구 전환
+    - IP 허용 목록에 추가
+
+### Spring Cloud MSA간 통신
+Feign Client 를 통한 통신
