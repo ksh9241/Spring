@@ -67,6 +67,8 @@
 백엔드 로드밸런싱 역할
 
 Spring Cloud - Gateway Dependency 사용
+- 설정 시 주의사항
+    - predicates 조건 주소값이 그대로 처리되기 때문에 RequestMapping URL 신경쓰기
 
 - API Gateway Service 기능
     - 인증 및 권한 부여
