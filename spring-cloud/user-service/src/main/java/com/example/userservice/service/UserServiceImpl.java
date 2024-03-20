@@ -19,7 +19,6 @@ import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService{
-
     private UserRepository userRepository;
 
     private PasswordEncoder passwordEncoder;
@@ -78,5 +77,18 @@ public class UserServiceImpl implements UserService{
     @Override
     public Iterable<UserEntity> getUserByAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public UserDto getUserDetailsByEmail(String userName) {
+        UserEntity user = userRepository.findByEmail(userName);
+
+        if (user == null) {
+            throw new UsernameNotFoundException(userName);
+        }
+
+        UserDto userDto = new ModelMapper().map(user, UserDto.class);
+
+        return userDto;
     }
 }

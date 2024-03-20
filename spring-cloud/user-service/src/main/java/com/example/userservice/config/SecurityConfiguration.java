@@ -37,6 +37,7 @@ public class SecurityConfiguration {
     public static final IpAddressMatcher ALLOWED_IP_ADDRESS_MATCHER = new IpAddressMatcher(ALLOWED_IP_ADDRESS + SUBNET);
 
     private final UserService userService;
+    private final Environment env;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ObjectPostProcessor<Object> objectPostProcessor;
 
@@ -57,9 +58,8 @@ public class SecurityConfiguration {
     }
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception{
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter();
         AuthenticationManagerBuilder builder = new AuthenticationManagerBuilder(objectPostProcessor);
-        authenticationFilter.setAuthenticationManager(authenticationManager(builder));
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager(builder), userService, env);
 
         return authenticationFilter;
     }
