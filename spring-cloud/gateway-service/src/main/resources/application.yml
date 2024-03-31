@@ -20,28 +20,53 @@ spring:
             postLogger: true
       mvc:
         routes:
+#          - id: user-service
+#            uri: lb://USER-SERVICE
+#            predicates:
+#              - Path=/user-service/**
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/login
+              - Method=POST
+            filters:
+              - RemoveRequestHeader=Cookie
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/users
+              - Method=POST
+            filters:
+              - RemoveRequestHeader=Cookie
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
           - id: user-service
             uri: lb://USER-SERVICE
             predicates:
               - Path=/user-service/**
-          - id: first-service
-            uri: http://127.0.0.1:8081/
-            predicates:
-              - Path=/first-service/**
+              - Method=GET
             filters:
+              - RemoveRequestHeader=Cookie
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+              - AuthorizationHeaderFilter
+#          - id: first-service
+#            uri: http://127.0.0.1:8081/
+#            predicates:
+#              - Path=/first-service/**
+#            filters:
 #              - AddRequestHeader=first-request, first-request-header2
 #              - AddResponseHeader=first-response, first-response-header2
-              - CustomFilter
-          - id: second-service
-            uri: http://127.0.0.1:8082/
-            predicates:
-              - Path=/second-service/**
-            filters:
+#              - CustomFilter
+#          - id: second-service
+#            uri: http://127.0.0.1:8082/
+#            predicates:
+#              - Path=/second-service/**
+#            filters:
 #              - AddRequestHeader=second-request, second-request-header2
 #              - AddResponseHeader=second-response, second-response-header2
-              - name: CustomFilter
-              - name: LoggingFilter
-                args:
-                  baseMessage: Hi, there
-                  preLogger: true
-                  postLogger: true
+#              - name: CustomFilter
+#              - name: LoggingFilter
+#                args:
+#                  baseMessage: Hi, there
+#                  preLogger: true
+#                  postLogger: true
