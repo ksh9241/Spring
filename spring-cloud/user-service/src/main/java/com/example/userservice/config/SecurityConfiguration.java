@@ -49,6 +49,8 @@ public class SecurityConfiguration {
 
         http.authorizeHttpRequests(
                 authorize -> authorize
+                        .requestMatchers("/actuator/**")
+                        .permitAll()
                         .requestMatchers("/**")
                         .access(this::hasIpAddress)
 

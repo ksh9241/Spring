@@ -83,3 +83,15 @@ Spring Cloud - Gateway Dependency 사용
 
 ### Spring Cloud MSA간 통신
 Feign Client 를 통한 통신
+
+### Change Configuration 방법
+- MS 서버 재기동
+- Actuator refresh
+- Spring cloud bus 사용
+
+#### SpringBoot Actuator
+[https://spring.io/guides/gs/actuator-service]
+Config Server의 수정사항을 각 MS의 재기동 없이 적용하는 방법
+
+    - Application 상태,모니터링
+    - Metric 수집을 위한 Http End point 제공
