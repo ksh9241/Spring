@@ -7,5 +7,12 @@ spring:
   cloud:
     config:
       server:
+#        native:
+#          search-locations: file://${user.home}/Desktop/Work/native-file-repo
         git:
-          uri: file:///Users/user/Downloads/Spring/spring-cloud
+          uri: https://github.com/ksh9241/Spring
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest

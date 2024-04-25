@@ -95,3 +95,8 @@ Config Server의 수정사항을 각 MS의 재기동 없이 적용하는 방법
 
     - Application 상태,모니터링
     - Metric 수집을 위한 Http End point 제공
+    - 단점으로는 각각의 MS가 있을 경우 어플리케이션 마다 리프레시를 해줘야하는 번거로움이 있다.
+
+#### Spring Cloud Bus
+    - 분산 시스템의 노드를 경량 메시지 브로커와 연결
+    - 상태 및 구성에 대한 변경 사항을 연결된 노드에게 전달 (Broadcast)
